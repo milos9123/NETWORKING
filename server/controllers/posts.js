@@ -71,3 +71,44 @@ export const likePost = async (req, res) => {
     res.status(404).json({ message: err.message });
   }
 };
+
+export const postComment = async (req, res) => {
+  try {
+    const { postId, userId } = req.params;
+    const { comment } = req.body;
+    const newComment = {
+      userId,
+      comment,
+    };
+    const post = await Post.findById(postId);
+    post.comments.push(newComment);
+    const updatedPost = await Post.findByIdAndUpdate(
+      postId,
+      { comments: post.comments },
+      { new: true }
+    );
+    res.status(200).json(updatedPost);
+  } catch (err) {
+    res.status(404).json({ message: err.message });
+  }
+};
+
+export const deleteComment = async (req, res) => {
+  try {
+    const { postId } = req.params;
+    const { comment } = req.body;
+    const post = await Post.findById(postId);
+
+    const updatedPost = post.comments.filter((item, i) => {
+      return item.comment !== comment;
+    });
+    const updatedNewPost = await Post.findByIdAndUpdate(
+      postId,
+      { comments: updatedPost },
+      { new: true }
+    );
+    res.status(200).json(updatedNewPost);
+  } catch (err) {
+    res.status(404).json({ message: err.message });
+  }
+};
