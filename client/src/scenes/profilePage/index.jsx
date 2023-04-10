@@ -10,6 +10,7 @@ import UserWidget from "scenes/widgets/UserWidget";
 const ProfilePage = () => {
   const [user, setUser] = useState(null);
   const { userId } = useParams();
+  const { _id } = useSelector((state) => state.user);
   const token = useSelector((state) => state.token);
   const isNonMobileScreens = useMediaQuery("(min-width:1000px)");
 
@@ -41,7 +42,7 @@ const ProfilePage = () => {
         <Box flexBasis={isNonMobileScreens ? "26%" : undefined}>
           <UserWidget userId={userId} picturePath={user.picturePath} />
           <Box m="2rem 0rem" />
-          <FriendListWidget userId={userId} />
+          {userId === _id && <FriendListWidget userId={userId} />}
         </Box>
         <Box
           flexBasis={isNonMobileScreens ? "42%" : undefined}
