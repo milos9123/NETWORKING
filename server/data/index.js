@@ -112,11 +112,7 @@ export const posts = [
       [userIds[3], true],
       [userIds[4], true],
     ]),
-    comments: [
-      "random comment",
-      "another random comment",
-      "yet another random comment",
-    ],
+    comments: [],
   },
   {
     _id: new mongoose.Types.ObjectId(),
@@ -133,11 +129,7 @@ export const posts = [
       [userIds[1], true],
       [userIds[2], true],
     ]),
-    comments: [
-      "random comment",
-      "and another random comment",
-      "one more random comment",
-    ],
+    comments: [],
   },
   {
     _id: new mongoose.Types.ObjectId(),
@@ -154,7 +146,7 @@ export const posts = [
       [userIds[3], true],
       [userIds[5], true],
     ]),
-    comments: ["random comment", "one more random comment"],
+    comments: [],
   },
   {
     _id: new mongoose.Types.ObjectId(),
@@ -170,7 +162,7 @@ export const posts = [
       [userIds[2], true],
       [userIds[3], true],
     ]),
-    comments: ["Random comment"],
+    comments: [],
   },
   {
     _id: new mongoose.Types.ObjectId(),
@@ -187,11 +179,7 @@ export const posts = [
       [userIds[0], true],
       [userIds[4], true],
     ]),
-    comments: [
-      "random comment",
-      "and another random comment",
-      "one more random comment",
-    ],
+    comments: [],
   },
   {
     _id: new mongoose.Types.ObjectId(),
@@ -207,6 +195,6 @@ export const posts = [
       [userIds[2], true],
     ]),
 
-    comments: ["random comment", "one more random comment"],
+    comments: [],
   },
 ];
